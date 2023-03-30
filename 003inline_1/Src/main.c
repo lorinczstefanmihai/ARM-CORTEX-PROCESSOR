@@ -24,7 +24,9 @@
 
 int main(void)
 {
-
+/*
+ *  load 2 values from memory, add them and store the result back to the memory using inline assembly statements
+ */
  	__asm volatile("LDR R1,=#0X20001000");
 	__asm volatile("LDR R2,=#0X20001004");
     __asm volatile("LDR R0,[R1]");
