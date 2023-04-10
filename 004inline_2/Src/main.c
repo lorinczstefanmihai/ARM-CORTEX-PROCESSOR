@@ -25,12 +25,36 @@
 int main(void)
 {
 	/*
-	 * move the content of a c variable : val into an ARM register r0
+	 * move the content of a 'C' variable : val into an ARM register r0
 	 */
-
     int val = 50;
 
     __asm volatile("MOV R0,%0": : "r"(val));
+
+   /*
+    * read CONTROL register to control_reg
+    */
+    int control_reg;
+
+    __asm volatile("MRS %0,CONTROL":"=r"(control_reg));
+
+    /*
+     * copy the content of a 'C' variable var1 to var2
+     */
+
+    int var1 = 51, var2;
+
+    __asm volatile("MOV %0,%1": "=r"(var2): "r"(var1));
+
+    /*
+     * copy the content of a pointer into a another variable
+     */
+
+    int p1, p2*;
+
+    p2 = (int*) 0x20000008;
+
+    __asm volatile("LDR %0, [%1]": "=r"(p1): "r"(p2));//p1 = *p2;
 
 	for(;;);
 }
