@@ -49,12 +49,11 @@ int main(void)
     /*
      * copy the content of a pointer into a another variable
      */
+    //int p1, p2*;
 
-    int p1, p2*;
+    //p2 = (int*) 0x20000008;
 
-    p2 = (int*) 0x20000008;
-
-    __asm volatile("LDR %0, [%1]": "=r"(p1): "r"(p2));//p1 = *p2;
+   // __asm volatile("LDR %0, [%1]": "=r"(p1): "r"(p2));//p1 = *p2;
 
 	for(;;);
 }
